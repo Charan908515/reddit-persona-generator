@@ -2,7 +2,7 @@
 
 import os
 import api_scraper
-import persona_generator
+import image_generator
 
 def ensure_dirs():
     os.makedirs("posts-and-comments", exist_ok=True)
@@ -16,8 +16,9 @@ def extract_username(url):
     return url.rstrip('/').split('/')[-1]
 
 def main():
-    url = input("Enter the Reddit url: ").strip()
+    url= input("Enter the Reddit url: ").strip()
     username=extract_username(url)
+    print(username)
     limit = 1000
 
     ensure_dirs()
@@ -38,9 +39,9 @@ def main():
         api_scraper.save_output(username, all_content)
 
     print(" Generating infographic...")
-    reddit_text = persona_generator.load_reddit_text(username)
-    persona = persona_generator.analyze_persona_structured(reddit_text)
-    persona_generator.draw_infographic(persona, username)
+    reddit_text = image_generator.load_reddit_text(username)
+    persona = image_generator.analyze_persona_structured(reddit_text,username)
+    image_generator.draw_infographic(persona, username)
 
     print(" Done.")
 
