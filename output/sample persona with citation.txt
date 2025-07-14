@@ -1,0 +1,56 @@
+{
+    "name": "Steve Huffman",
+    "name_citation": "I am Steve Huffman, the new CEO of reddit. AMA. Hey Everyone, I'm Steve, aka spez, the new CEO around here. For those of you who don't know me, I founded reddit ten years ago with my college roommate Alexis, aka kn0thing. Since then, reddit has grown far larger than my wildest dreams. I'm so proud of what it's become, and I'm very excited to be back. https://reddit.com/r/IAmA/comments/3cxedn/i_am_steve_huffman_the_new_ceo_of_reddit_ama/",
+    "age": 41,
+    "age_citation": "Based on founding Reddit 10 years prior to 2015 (when he returned as CEO) as a college roommate, placing him in his early 20s around 2005. 'I founded reddit ten years ago with my college roommate Alexis' (2015) https://reddit.com/r/IAmA/comments/3cxedn/i_am_steve_huffman_the_new_ceo_of_reddit_ama/. Also, 'Reddit turns 20' in 2025. If he was 22 in 2005, he'd be 42 in 2025. 'This was the beginning of the internet for me. I used to access it from the public library after school.' (referring to 1997) https://reddit.com/r/ModSupport/comments/vzy7tk/we_might_be_laughing_a_bit_too_loud_aw_but_that/igbac4t/",
+    "occupation": "CEO of Reddit",
+    "occupation_citation": "I am Steve Huffman, the new CEO of reddit. AMA. Hey Everyone, I'm Steve, aka spez, the new CEO around here. https://reddit.com/r/IAmA/comments/3cxedn/i_am_steve_huffman_the_new_ceo_of_reddit_ama/",
+    "status": "Partnered with a dog",
+    "status_citation": "I quit drinking 1.5 years ago. It was probably the single best change I've made in my life. Huge thank you to r/stopdrinking. Couldn't have done it without you all. (implies stable home life with partner) https://reddit.com/r/wallstreetbets/comments/lmxbr3/deleted_by_user/go1ixbd/ and 'My dog\u2019s had a case the last day. Will try this out!' https://reddit.com/r/ModSupport/comments/i9qscy/its_friday_i_dont_care_if_mondays_blue/g1htij9/",
+    "location": "San Francisco, CA",
+    "location_citation": "When I first moved to San Francisco, someone told me I will be considered a local when I have a costume box. After 15 years, I can proudly say I now have an entire costume closet, to which I will be adding again for this year. https://reddit.com/r/ModSupport/comments/jgvda8/you_hear_the_creature_creepin_up_behind_on_yet/g9sz5vq/ and 'San Francisco \ud83e\udd37\ud83c\udffc\u200d\u2642\ufe0f' https://reddit.com/r/ModSupport/comments/jpb7er/watching_the_tide_roll_away_on_a_friday/gbjoobr/",
+    "tier": "Executive",
+    "tier_citation": "I am Steve Huffman, the new CEO of reddit. AMA. Hey Everyone, I'm Steve, aka spez, the new CEO around here. https://reddit.com/r/IAmA/comments/3cxedn/i_am_steve_huffman_the_new_ceo_of_reddit_ama/",
+    "archetype": "The Visionary Architect",
+    "archetype_citation": "Reddit\u2019s next chapter: smarter, easier, still human. Our goal is to make Reddit the best version of itself by being faster, better, and easier to use. Here\u2019s how we\u2019re bringing that vision to life: https://reddit.com/r/u_spez/comments/1kfciml/reddits_next_chapter_smarter_easier_still_human/",
+    "summary_quote": "Our mission: empower communities, and make their knowledge accessible to everyone.",
+    "motivations": {
+        "Community Building": 0.9,
+        "Innovation & Progress": 0.8,
+        "Problem Solving": 0.8,
+        "User Empowerment": 0.7,
+        "Authenticity & Trust": 0.9,
+        "Privacy & Anonymity": 0.8,
+        "Efficiency & Optimization": 0.7,
+        "Financial Growth": 0.5
+    },
+    "personality": {
+        "Extraversion": 0.5,
+        "Introversion": 0.5,
+        "Sensing": 0.3,
+        "Intuition": 0.7,
+        "Thinking": 0.7,
+        "Feeling": 0.3,
+        "Judging": 0.7,
+        "Perceiving": 0.3
+    },
+    "behaviour": [
+        "Communicates directly with the community through posts and AMAs, especially for major updates.",
+        "Actively seeks and incorporates feedback from moderators and users for product development.",
+        "Prioritizes improving core Reddit functionality and user experience, including fixing bugs and enhancing search.",
+        "Engages in personal hobbies like mountain biking and reading Discworld books.",
+        "Maintains sobriety and credits an online community (r/stopdrinking) for support."
+    ],
+    "frustrations": [
+        "The difficulty and time-consuming nature of moderating subreddits with existing tools.",
+        "Reddit's internal search functionality being ineffective for users to find information.",
+        "The risk of AI-generated content undermining the human authenticity and trust on Reddit.",
+        "Combating spam and account take-overs (ATOs) on the platform.",
+        "The technical limitations and lack of scalability of 'old.reddit' for development."
+    ],
+    "goals": [
+        "Transform Reddit into the best version of itself by making it faster, better, and easier to use.",
+        "Empower communities and make the vast human knowledge shared on Reddit accessible to everyone.",
+        "Enhance moderator tools, especially with AI-driven automation, to simplify moderation and foster community cultivation."
+    ]
+}
