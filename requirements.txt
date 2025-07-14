@@ -1,0 +1,7 @@
+praw
+requests
+python-dotenv
+pillow
+langchain
+langchain-google-genai
+pydantic
