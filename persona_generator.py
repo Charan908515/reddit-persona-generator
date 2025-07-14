@@ -1,4 +1,4 @@
-
+import json
 # persona_infographic.py
 import time
 from pydantic import ValidationError
@@ -16,7 +16,7 @@ load_dotenv()
 # ------------------------
 # 1. Define the Pydantic Persona Model
 # ------------------------
-class RedditPersona(BaseModel):
+class RedditPersonaImage(BaseModel):
     name: str
     age: int
     occupation: str
@@ -34,6 +34,35 @@ class RedditPersona(BaseModel):
     frustrations: List[str]
     goals: List[str]
 
+class RedditPersonaText(BaseModel):
+    name: str
+    name_citation: str
+
+    age: int
+    age_citation: str
+
+    occupation: str
+    occupation_citation: str
+
+    status: str
+    status_citation: str
+
+    location: str
+    location_citation: str
+
+    tier: str
+    tier_citation: str
+
+    archetype: str
+    archetype_citation: str
+
+    summary_quote: str
+
+    motivations: dict  # e.g. {"Convenience": 0.9, ...}
+    personality: dict  # e.g. {"Introvert": 0.2, "Extrovert": 0.8, ...}
+    behaviour: List[str]
+    frustrations: List[str]
+    goals: List[str]
 # ------------------------
 # 2. Load Reddit Text
 # ------------------------
@@ -45,11 +74,12 @@ def load_reddit_text(username: str) -> str:
 # ------------------------
 # 3. Call LLM & Parse to Pydantic
 # ------------------------
-def analyze_persona_structured(reddit_text,max_retries=10,delay=5) -> RedditPersona:
+
+def analyze_persona_structured(reddit_text,username,max_retries=10,delay=5) -> RedditPersonaText:
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash",api_key=os.getenv("GOOGLE_API_KEY"),temperature=0.7)
     
-    parser = PydanticOutputParser(pydantic_object=RedditPersona)
-    fmt = parser.get_format_instructions()
+    parser = PydanticOutputParser(pydantic_object=RedditPersonaText)
+
 
     # Build a single template that includes both placeholders
     system_prompt = """
@@ -60,7 +90,43 @@ You are a UX researcher crafting a detailed persona. Extract the following field
 - personality: map of MBTI dimensions to floats (0-1)  
 - behaviour: list of 5 habits  
 - frustrations: list of 5 frustrations  
-- goals: list of 3 goals  
+- goals: list of 3 goals
+INSTRUCTIONS:
+For each trait you extract, include a short quote or summary of the post/comment that supports it, along with a Reddit link.
+
+Return the result as JSON with the following structure:
+
+{{
+  "name": "string",
+  "name_citation": "quoted text or Reddit link",
+
+  "age": int,
+  "age_citation": "quoted text or Reddit link",
+
+  "occupation": "string",
+  "occupation_citation": "quoted text or Reddit link",
+
+  "status": "string",
+  "status_citation": "...",
+
+  "location": "string",
+  "location_citation": "...",
+
+  "tier": "string",
+  "tier_citation": "...",
+
+  "archetype": "string",
+  "archetype_citation": "...",
+
+  "summary_quote": "string",
+
+  "motivations": {{"key": float, ...}},
+  "personality": {{"key": float, ...}},
+
+  "behaviour": [list of 5 strings],
+  "frustrations": [list of 5 strings],
+  "goals": [list of 3 strings] 
+  }} 
 """
     prompt_template = ChatPromptTemplate.from_messages(
         [
@@ -75,15 +141,21 @@ You are a UX researcher crafting a detailed persona. Extract the following field
     for attempt in range(1, max_retries + 1):
         try:
             print(f" Attempt {attempt} to generate persona...")
-            return chain.invoke({"reddit_text": reddit_text})
+            result= chain.invoke({"reddit_text": reddit_text})
+            os.makedirs("output with citation", exist_ok=True)
+            with open(f"output with citation/{username}_persona.txt", "w", encoding="utf-8") as f:
+                f.write(json.dumps(result.dict(),indent=4))
+            print("generated")
+            return result
         except ValidationError as e:
-            print(f" Validation error (attempt {attempt}): {e}")
+            print(f" Validation error (attempt {attempt}):/n{e}\n{e.errors()}")
         except Exception as e:
             print(f" Other error (attempt {attempt}): {e}")
 
         time.sleep(delay)
 
     raise RuntimeError(f"Failed to generate a valid persona after {max_retries} attempts.")
+
 
 # ------------------------
 # 4. Draw Infographic
@@ -275,7 +347,6 @@ def draw_infographic(persona,username):
     output_path=f"output/{username}.png"
     img.save(output_path)
     print(f" Persona image saved to: {output_path}")
-
 
 
 
