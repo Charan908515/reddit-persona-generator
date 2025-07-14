@@ -16,7 +16,7 @@ This project scrapes a Reddit user's public content, analyzes their behavior and
 .
 ├── main.py                  # Entry point
 ├── api_scraper.py          # Reddit data scraper
-├── image_generator.py      # Persona analyzer + image generator
+├── persona_generator.py      # Persona analyzer + image generator
 ├── posts-and-comments/     # Saved Reddit text data
 ├── avatar/                 # Downloaded Reddit avatars
 ├── output/                 # Final persona infographic images
