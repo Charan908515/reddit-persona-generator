@@ -12,9 +12,12 @@ def already_scraped(username):
     txt_path = f"posts-and-comments/{username}_reddit.txt"
     avatar_path = f"avatar/{username}.jpg"
     return os.path.exists(txt_path) and os.path.exists(avatar_path)
+def extract_username(url):
+    return url.rstrip('/').split('/')[-1]
 
 def main():
-    username = input("Enter the Reddit username: ").strip()
+    url = input("Enter the Reddit url: ").strip()
+    username=extract_username(url)
     limit = 1000
 
     ensure_dirs()
