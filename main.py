@@ -2,7 +2,7 @@
 
 import os
 import api_scraper
-import image_generator
+import persona_generator
 
 def ensure_dirs():
     os.makedirs("posts-and-comments", exist_ok=True)
@@ -39,9 +39,9 @@ def main():
         api_scraper.save_output(username, all_content)
 
     print(" Generating infographic...")
-    reddit_text = image_generator.load_reddit_text(username)
-    persona = image_generator.analyze_persona_structured(reddit_text,username)
-    image_generator.draw_infographic(persona, username)
+    reddit_text = persona_generator.load_reddit_text(username)
+    persona = persona_generator.analyze_persona_structured(reddit_text,username)
+    persona_generator.draw_infographic(persona, username)
 
     print(" Done.")
 
